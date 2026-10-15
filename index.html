@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -128,6 +128,13 @@
     text-decoration:none; cursor:pointer;
   }
   .cta-ghost:hover{ border-color:var(--teal); color:var(--teal); }
+  .lang-btn{
+    font-family:var(--mono); font-size:12.5px; font-weight:700;
+    background:transparent; color:var(--text-dim);
+    border:1px solid var(--line); border-radius:6px; padding:8px 11px;
+    cursor:pointer; line-height:1; white-space:nowrap;
+  }
+  .lang-btn:hover{ border-color:var(--teal); color:var(--teal); }
   .menu-toggle{ display:none; background:none; border:1px solid var(--line); border-radius:6px; color:var(--text); width:38px; height:38px; }
   @media (max-width:820px){
     nav.links{ display:none; }
@@ -270,6 +277,12 @@
   @media (max-width:820px){ .about-grid{ grid-template-columns:1fr; } }
   .about-photo{ aspect-ratio:1/1; max-width:280px; }
   .about-photo .ph{ height:100%; border-radius:14px; }
+  .bio-card{
+    border:1px solid var(--line); border-radius:12px; background:var(--bg-elev);
+    padding:26px 28px; display:flex; flex-direction:column; gap:14px;
+  }
+  .bio-card .bio-label{ font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); }
+  .bio-card p{ font-size:15.5px; line-height:1.8; color:var(--text-dim); }
 
   /* ---------- TESTIMONIOS ---------- */
   .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
@@ -330,47 +343,48 @@
   <div class="nav-inner">
     <div class="brand"><span class="dot"></span>Jorge Fandiño<span style="color:var(--text-faint)">.dev</span></div>
     <nav class="links">
-      <a href="#servicios">Servicios</a>
-      <a href="#proceso">Cómo trabajo</a>
-      <a href="#modalidades">Modalidades</a>
-      <a href="#stack">Stack</a>
-      <!-- <a href="#contacto">Contacto</a> -->
+      <a href="#servicios" data-i18n="nav.services">Services</a>
+      <a href="#proceso" data-i18n="nav.how">How I work</a>
+      <a href="#modalidades" data-i18n="nav.modes">Work Modes</a>
+      <a href="#stack" data-i18n="nav.stack">Stack</a>
+      <!-- <a href="#contacto" data-i18n="contact.eyebrow">Contact</a> -->
     </nav>
     <div class="nav-actions" style="display:flex; gap:10px; align-items:center;">
-      <!-- <a href="#contacto" class="cta-ghost">Ver disponibilidad</a> -->
-      <a href="#contacto" class="cta-btn">Agendar llamada</a>
-      <button class="menu-toggle" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">
+      <!-- <a href="#contacto" class="cta-ghost">View availability</a> -->
+      <button type="button" class="lang-btn" id="langBtnDesktop">ES</button>
+      <a href="#contacto" class="cta-btn" data-i18n="cta.bookCall">Book a call</a>
+      <button class="menu-toggle" id="menuBtn" aria-label="Open menu" aria-expanded="false" data-i18n-aria="menu.open">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </div>
   <div id="mobileMenu">
-    <a href="#servicios">Servicios</a>
-    <a href="#proceso">Cómo trabajo</a>
-    <a href="#modalidades">Modalidades</a>
-    <a href="#stack">Stack</a>
-    <!-- <a href="#contacto">Contacto</a> -->
+    <a href="#servicios" data-i18n="nav.services">Services</a>
+    <a href="#proceso" data-i18n="nav.how">How I work</a>
+    <a href="#modalidades" data-i18n="nav.modes">Work Modes</a>
+    <a href="#stack" data-i18n="nav.stack">Stack</a>
+    <!-- <a href="#contacto" data-i18n="contact.eyebrow">Contact</a> -->
   </div>
 </header>
 
 <div class="wrap hero">
   <div class="hero-grid">
     <div>
-      <div class="eyebrow">Disponible para nuevos proyectos</div>
-      <h1>Infraestructura estable, <span>deploys sin drama.</span></h1>
-      <p class="lede">Soy ingeniero DevOps / Infrastructure freelance. Diseño, automatizo y mantengo la infraestructura cloud y los pipelines de CI/CD para que tu equipo entregue software sin apagar incendios en producción.</p>
+      <div class="eyebrow" data-i18n="hero.eyebrow">Available for new projects</div>
+      <h1 data-i18n-html="hero.title">Stable infrastructure, <span>deploys without drama.</span></h1>
+      <p class="lede" data-i18n="hero.lede">I'm a DevOps / Infrastructure engineer. I design, automate and maintain cloud infrastructure and CI/CD pipelines so your team ships software without firefighting in production.</p>
       <div class="hero-actions">
-        <a href="#contacto" class="cta-btn">Agendar una llamada</a>
-        <a href="#servicios" class="cta-ghost">Ver servicios</a>
+        <a href="#contacto" class="cta-btn" data-i18n="cta.bookCall">Book a call</a>
+        <a href="#servicios" class="cta-ghost" data-i18n="cta.viewServices">View services</a>
       </div>
 
       <div class="stat-row">
-        <!-- <div class="stat"><b>3+</b><span>proyectos entregados</span></div> -->
-        <div class="stat"><b>5 años</b><span>en infraestructura cloud</span></div>
-        <div class="stat"><b>99.9%</b><span>uptime promedio*</span></div>
-        <div class="stat"><b>&lt;6h</b><span>tiempo de respuesta</span></div>
+        <!-- <div class="stat"><b>3+</b><span>projects delivered</span></div> -->
+        <div class="stat"><b data-i18n="stat.years">5 years</b><span data-i18n="stat.years.label">in cloud infrastructure</span></div>
+        <div class="stat"><b>99.9%</b><span data-i18n="stat.uptime.label">average uptime*</span></div>
+        <div class="stat"><b>&lt;6h</b><span data-i18n="stat.response.label">response time</span></div>
       </div>
-     
+
     </div>
 
     <div class="terminal">
@@ -389,11 +403,11 @@
       <img src="Beto_clonia.jpg" alt="Jorge Fandiño" style="width:100%; height:100%; object-fit:cover; border-radius:14px; display:block;">
     </div>
     <div>
-      <div class="eyebrow">Sobre mí</div>
+      <div class="eyebrow" data-i18n="about.eyebrow">About me</div>
       <h2 style="font-size:24px; font-weight:700; margin-bottom:14px;">Jorge Fandiño — DevOps & Infrastructure Engineer</h2>
-      <div class="ph" style="align-items:flex-start; text-align:left; padding:20px;">
-        <b>Hola, que tal</b>
-        <small>Aqui Ingeniero de infrastructura cloud con 5 años de experiencia. Especializado en soluciones de automatización, CI/CD y gestión de entornos en la nube (principalmente AWS). He trabajado con startups y scaleups en industrias como finanzas, salud y tecnología e incluso con open sources.</small>
+      <div class="bio-card">
+        <span class="bio-label" data-i18n="about.greeting">Hi there</span>
+        <p data-i18n="about.bio">Cloud infrastructure engineer with 5 years of experience. Specialized in automation, CI/CD and cloud environment management (mainly AWS). I've worked with startups and scaleups across industries like finance, healthcare and tech, and even open source projects.</p>
       </div>
     </div>
   </div>
@@ -402,40 +416,40 @@
 <section id="servicios" style="background:var(--bg-elev); border-block:1px solid var(--line);">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Servicios</div>
-      <h2>En qué puedo ayudarte</h2>
+      <div class="eyebrow" data-i18n="services.eyebrow">Services</div>
+      <h2 data-i18n="services.title">How I can help</h2>
     </div>
 
     <div class="services-grid">
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
-        <h3>CI/CD &amp; Automatización</h3>
-        <p style="font-size:13.5px;">Automatización de pipelines con GitHub Actions, GitLab CI o Jenkins — builds, tests y despliegues sin intervención manual.</p>
+        <h3 data-i18n="svc.cicd.title">CI/CD & Automation</h3>
+        <p style="font-size:13.5px;" data-i18n="svc.cicd.desc">Pipeline automation with GitHub Actions, GitLab CI or Jenkins — builds, tests and deployments with no manual steps.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 15a4 4 0 004 4h10a4 4 0 000-8 5 5 0 00-9.6-2A4 4 0 003 15z"/></svg></div>
-        <h3>Infraestructura Cloud</h3>
-        <p style="font-size:13.5px;">Arquitectura, costos e Infraestructura como Código (Terraform) en AWS, GCP y Azure.</p>
+        <h3 data-i18n="svc.cloud.title">Cloud Infrastructure</h3>
+        <p style="font-size:13.5px;" data-i18n="svc.cloud.desc">Architecture, cost optimization and Infrastructure as Code (Terraform) on AWS, GCP and Azure.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-        <h3>Kubernetes &amp; Contenedores</h3>
-        <p style="font-size:13.5px;">Orquestación, migraciones a Kubernetes y optimización de clusters.</p>
+        <h3 data-i18n="svc.k8s.title">Kubernetes & Containers</h3>
+        <p style="font-size:13.5px;" data-i18n="svc.k8s.desc">Orchestration, migrations to Kubernetes and cluster optimization.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
-        <h3>Monitoreo &amp; Observabilidad</h3>
-        <p style="font-size:13.5px;">Prometheus, Grafana, alertas, dashboards y definición de SLOs.</p>
+        <h3 data-i18n="svc.monitoring.title">Monitoring & Observability</h3>
+        <p style="font-size:13.5px;" data-i18n="svc.monitoring.desc">Prometheus, Grafana, alerting, dashboards and SLO definition.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg></div>
-        <h3>Seguridad &amp; Compliance</h3>
-        <p style="font-size:13.5px;">Hardening, gestión de secretos, políticas de acceso y auditorías.</p>
+        <h3 data-i18n="svc.security.title">Security & Compliance</h3>
+        <p style="font-size:13.5px;" data-i18n="svc.security.desc">Hardening, secrets management, access policies and audits.</p>
       </div>
       <div class="svc-card">
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <h3>Soporte &amp; Guardia (On-call)</h3>
-        <p style="font-size:13.5px;">SLA de respuesta, alta disponibilidad e incident response.</p>
+        <h3 data-i18n="svc.oncall.title">Support & On-call</h3>
+        <p style="font-size:13.5px;" data-i18n="svc.oncall.desc">Response SLAs, high availability and incident response.</p>
       </div>
     </div>
   </div>
@@ -443,53 +457,53 @@
 
 <div class="wrap" id="proceso" style="padding-block:88px;">
   <div class="section-head">
-    <div class="eyebrow">Cómo trabajo</div>
-    <h2>Proceso en 4 etapas</h2>
+    <div class="eyebrow" data-i18n="nav.how">How I work</div>
+    <h2 data-i18n="process.title">A 4-stage process</h2>
   </div>
   <div class="process">
-    <div class="step"><span class="num">01</span><h4>Diagnóstico</h4><p>Auditoría de tu infraestructura y pipelines actuales, identificación de riesgos y quick wins.</p></div>
-    <div class="step"><span class="num">02</span><h4>Propuesta</h4><p>Plan de trabajo con alcance, tiempos estimados y modalidad más conveniente para tu caso.</p></div>
-    <div class="step"><span class="num">03</span><h4>Implementación</h4><p>Ejecución iterativa con entregas incrementales y comunicación constante.</p></div>
-    <div class="step"><span class="num">04</span><h4>Soporte</h4><p>Documentación, transferencia de conocimiento y acompañamiento post-entrega.</p></div>
+    <div class="step"><span class="num">01</span><h4 data-i18n="step1.title">Diagnosis</h4><p data-i18n="step1.desc">An audit of your current infrastructure and pipelines, spotting risks and quick wins.</p></div>
+    <div class="step"><span class="num">02</span><h4 data-i18n="step2.title">Proposal</h4><p data-i18n="step2.desc">A work plan with scope, estimated timeline and the engagement model that fits your case.</p></div>
+    <div class="step"><span class="num">03</span><h4 data-i18n="step3.title">Implementation</h4><p data-i18n="step3.desc">Iterative execution with incremental delivery and constant communication.</p></div>
+    <div class="step"><span class="num">04</span><h4 data-i18n="step4.title">Support</h4><p data-i18n="step4.desc">Documentation, knowledge transfer and post-delivery support.</p></div>
   </div>
 </div>
 
 <section id="modalidades" style="background:var(--bg-elev); border-block:1px solid var(--line);">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Modalidades de trabajo</div>
-      <h2>Elige el formato que más te convenga</h2>
+      <div class="eyebrow" data-i18n="modes.eyebrow">Work modes</div>
+      <h2 data-i18n="modes.title">Choose the format that works for you</h2>
     </div>
     <div class="modes">
       <div class="mode-card">
-        <h3>Por hora</h3>
-        <div class="price">$7 <small>/ hora</small></div>
-        <p style="font-size:13px;">Ideal para consultoría puntual o troubleshooting específico.</p>
+        <h3 data-i18n="mode.hourly.title">Hourly</h3>
+        <div class="price">$7 <small data-i18n="mode.hourly.unit">/ hour</small></div>
+        <p style="font-size:13px;" data-i18n="mode.hourly.desc">Ideal for one-off consulting or specific troubleshooting.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Facturación por horas trabajadas</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Mínimo de 4 horas</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Sin permanencia</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.hourly.li1">Billed for hours worked</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.hourly.li2">4-hour minimum</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.hourly.li3">No long-term commitment</span></li>
         </ul>
       </div>
       <div class="mode-card highlight">
-        <span class="mode-tag">Más elegido</span>
-        <h3>Proyecto definido</h3>
-        <div class="price">$(a definir) <small>precio cerrado</small></div>
-        <p style="font-size:13px;">Alcance, tiempos y entregables definidos por adelantado.</p>
+        <span class="mode-tag" data-i18n="mode.project.tag">Most popular</span>
+        <h3 data-i18n="mode.project.title">Fixed-scope project</h3>
+        <div class="price"><span data-i18n="mode.project.price">$(TBD)</span> <small data-i18n="mode.project.unit">flat price</small></div>
+        <p style="font-size:13px;" data-i18n="mode.project.desc">Scope, timeline and deliverables defined upfront.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Alcance cerrado en propuesta</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Pago en 3 hitos</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Documentación incluida</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.project.li1">Scope locked in the proposal</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.project.li2">Payment in 3 milestones</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.project.li3">Documentation included</span></li>
         </ul>
       </div>
       <div class="mode-card">
-        <h3>Retainer mensual</h3>
-        <div class="price">$600 <small>/ mes</small></div>
-        <p style="font-size:13px;">Acompañamiento continuo, soporte y mejoras recurrentes.</p>
+        <h3 data-i18n="mode.retainer.title">Monthly retainer</h3>
+        <div class="price">$600 <small data-i18n="mode.retainer.unit">/ month</small></div>
+        <p style="font-size:13px;" data-i18n="mode.retainer.desc">Ongoing support and recurring improvements.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>80 horas incluidas al mes</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>SLA de respuesta 3h</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Cancelable mes a mes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.retainer.li1">80 hours included per month</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.retainer.li2">3h response SLA</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="mode.retainer.li3">Cancel anytime, month to month</span></li>
         </ul>
       </div>
     </div>
@@ -498,8 +512,8 @@
 
 <div class="wrap" id="stack" style="padding-block:88px;">
   <div class="section-head">
-    <div class="eyebrow">Stack &amp; herramientas</div>
-    <h2>Con qué trabajo</h2>
+    <div class="eyebrow" data-i18n="stack.eyebrow">Stack & tools</div>
+    <h2 data-i18n="stack.title">What I work with</h2>
   </div>
   <div class="stack-cloud">
     <span class="badge"><span class="bd"></span>Terraform</span>
@@ -518,7 +532,7 @@
     <span class="badge"><span class="bd"></span>ELK Stack</span>
     <span class="badge"><span class="bd"></span>Datadog</span>
     <span class="badge"><span class="bd"></span>Django</span>
-    <span class="badge" style="border-style:dashed; color:var(--text-faint);">+ agrega más</span>
+    <span class="badge" style="border-style:dashed; color:var(--text-faint);" data-i18n="stack.more">+ more</span>
   </div>
 </div>
 
@@ -526,28 +540,28 @@
 <section style="background:var(--bg-elev); border-block:1px solid var(--line);">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Proyectos destacados</div>
-      <h2>Casos de trabajo</h2>
-      <p>Espacio para mostrar 3 proyectos: screenshot de dashboard, diagrama de arquitectura o logo del cliente.</p>
+      <div class="eyebrow">Featured projects</div>
+      <h2>Case studies</h2>
+      <p>Space to show 3 projects: a dashboard screenshot, an architecture diagram or a client logo.</p>
     </div>
     <div class="gallery">
-      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg><b>Proyecto 1</b><small>Imagen + breve descripción del caso</small></div>
-      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg><b>Proyecto 2</b><small>Imagen + breve descripción del caso</small></div>
-      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg><b>Proyecto 3</b><small>Imagen + breve descripción del caso</small></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg><b>Project 1</b><small>Image + short case description</small></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg><b>Project 2</b><small>Image + short case description</small></div>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-4 4-3-3-6 6"/></svg><b>Project 3</b><small>Image + short case description</small></div>
     </div>
   </div>
 </section>
 
 <div class="wrap" style="padding-block:88px;">
   <div class="section-head">
-    <div class="eyebrow">Testimonios</div>
-    <h2>Lo que dicen los clientes</h2>
-    <p>Agrega citas reales una vez que tengas los primeros proyectos cerrados.</p>
+    <div class="eyebrow">Testimonials</div>
+    <h2>What clients say</h2>
+    <p>Add real quotes once you have your first closed projects.</p>
   </div>
   <div class="testi-grid">
-    <div class="testi-card"><div class="ph"><b>Testimonio 1</b><small>Cita del cliente + nombre y empresa</small></div></div>
-    <div class="testi-card"><div class="ph"><b>Testimonio 2</b><small>Cita del cliente + nombre y empresa</small></div></div>
-    <div class="testi-card"><div class="ph"><b>Testimonio 3</b><small>Cita del cliente + nombre y empresa</small></div></div>
+    <div class="testi-card"><div class="ph"><b>Testimonial 1</b><small>Client quote + name and company</small></div></div>
+    <div class="testi-card"><div class="ph"><b>Testimonial 2</b><small>Client quote + name and company</small></div></div>
+    <div class="testi-card"><div class="ph"><b>Testimonial 3</b><small>Client quote + name and company</small></div></div>
   </div>
 </div>
 -->
@@ -556,22 +570,22 @@
   <div class="wrap">
     <div class="contact-box">
       <div>
-        <div class="eyebrow">Contacto</div>
-        <h2>¿Hablamos de tu infraestructura?</h2>
-        <p style="margin-top:12px; font-size:14.5px;">Cuéntame en qué estado está tu infraestructura hoy y qué te gustaría resolver. Respondo en menos de [X] horas hábiles.</p>
+        <div class="eyebrow" data-i18n="contact.eyebrow">Contact</div>
+        <h2 data-i18n="contact.title">Let's talk about your infrastructure</h2>
+        <p style="margin-top:12px; font-size:14.5px;" data-i18n="contact.desc">Tell me where your infrastructure stands today and what you'd like to solve. I respond within [X] business hours.</p>
         <div class="contact-list">
           <a href="mailto:beto3971@gmail.com" class="contact-item">
             <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></span>
-            <span><span class="c-label">Email</span><span class="c-value">beto3971@gmail.com</span></span>
+            <span><span class="c-label" data-i18n="contact.label.email">Email</span><span class="c-value">beto3971@gmail.com</span></span>
           </a>
           <!-- <a href="#" class="contact-item"><span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span><span class="c-label">LinkedIn</span><span class="c-value">linkedin.com/in/[tu-usuario]</span></span></a> -->
           <a href="https://github.com/BetoFandino" target="_blank" rel="noopener" class="contact-item">
             <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.9 3.9 0 00-1.1-2.7c3.1-.4 6.1-1.6 6.1-7A5.4 5.4 0 0020 4.8 5 5 0 0019.9.4S18.7 0 16 2a13.4 13.4 0 00-7 0C6.3 0 5 .4 5 .4A5 5 0 004.9 4.8a5.4 5.4 0 00-1.5 3.8c0 5.4 3 6.6 6.1 7A4 4 0 008.5 18v3"/></svg></span>
-            <span><span class="c-label">GitHub</span><span class="c-value">github.com/BetoFandino</span></span>
+            <span><span class="c-label" data-i18n="contact.label.github">GitHub</span><span class="c-value">github.com/BetoFandino</span></span>
           </a>
           <a href="https://wa.me/584129511515" target="_blank" rel="noopener" class="contact-item">
             <span class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .7 2.9a2 2 0 01-.4 2.1L8 10a16 16 0 006 6l1.3-1.4a2 2 0 012.1-.4c.9.4 1.9.6 2.9.7a2 2 0 011.7 2z"/></svg></span>
-            <span><span class="c-label">WhatsApp / Llamadas</span><span class="c-value">+58 412 951 1515</span></span>
+            <span><span class="c-label" data-i18n="contact.label.whatsapp">WhatsApp / Calls</span><span class="c-value">+58 412 951 1515</span></span>
           </a>
         </div>
       </div>
@@ -579,19 +593,19 @@
       <!--
       <form class="form" onsubmit="event.preventDefault();">
         <div class="form-row">
-          <label for="cname">Nombre</label>
-          <input id="cname" type="text" placeholder="Tu nombre">
+          <label for="cname">Name</label>
+          <input id="cname" type="text" placeholder="Your name">
         </div>
         <div class="form-row">
           <label for="cemail">Email</label>
-          <input id="cemail" type="email" placeholder="tu@empresa.com">
+          <input id="cemail" type="email" placeholder="you@company.com">
         </div>
         <div class="form-row">
-          <label for="cmsg">Cuéntame sobre tu proyecto</label>
-          <textarea id="cmsg" placeholder="Stack actual, tamaño del equipo, qué necesitas resolver..."></textarea>
+          <label for="cmsg">Tell me about your project</label>
+          <textarea id="cmsg" placeholder="Current stack, team size, what you need to solve..."></textarea>
         </div>
-        <button type="submit" class="cta-btn" style="padding:12px 20px;">Enviar mensaje</button>
-        <small style="color:var(--text-faint); font-size:11.5px;">Conecta este formulario a un servicio (Formspree, correo, etc.) cuando definas el hosting.</small>
+        <button type="submit" class="cta-btn" style="padding:12px 20px;">Send message</button>
+        <small style="color:var(--text-faint); font-size:11.5px;">Connect this form to a service (Formspree, email, etc.) once you've picked your hosting.</small>
       </form>
       -->
     </div>
@@ -600,11 +614,11 @@
 
 <footer>
   <div class="wrap footer-inner">
-    <p>© <span id="year"></span> Jorge Fandiño. Todos los derechos reservados.</p>
+    <p>© <span id="year"></span> Jorge Fandiño. <span data-i18n="footer.rights">All rights reserved.</span></p>
     <div class="footer-links">
-      <a href="#servicios">Servicios</a>
-      <a href="#modalidades">Modalidades</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#servicios" data-i18n="nav.services">Services</a>
+      <a href="#modalidades" data-i18n="nav.modes">Work Modes</a>
+      <a href="#contacto" data-i18n="contact.eyebrow">Contact</a>
     </div>
   </div>
 </footer>
@@ -625,76 +639,205 @@
     });
   }
 
+  /* ---------- i18n ---------- */
+  var translations = {
+    en: {
+      'nav.services':'Services', 'nav.how':'How I work', 'nav.modes':'Work Modes', 'nav.stack':'Stack',
+      'cta.bookCall':'Book a call', 'cta.viewServices':'View services',
+      'hero.eyebrow':'Available for new projects',
+      'hero.title':'Stable infrastructure, <span>deploys without drama.</span>',
+      'hero.lede':'I’m a DevOps / Infrastructure engineer. I design, automate and maintain cloud infrastructure and CI/CD pipelines so your team ships software without firefighting in production.',
+      'stat.years':'5 years', 'stat.years.label':'in cloud infrastructure',
+      'stat.uptime.label':'average uptime*', 'stat.response.label':'response time',
+      'about.eyebrow':'About me', 'about.greeting':'Hi there',
+      'about.bio':'Cloud infrastructure engineer with 5 years of experience. Specialized in automation, CI/CD and cloud environment management (mainly AWS). I’ve worked with startups and scaleups across industries like finance, healthcare and tech, and even open source projects.',
+      'services.eyebrow':'Services', 'services.title':'How I can help',
+      'svc.cicd.title':'CI/CD & Automation', 'svc.cicd.desc':'Pipeline automation with GitHub Actions, GitLab CI or Jenkins — builds, tests and deployments with no manual steps.',
+      'svc.cloud.title':'Cloud Infrastructure', 'svc.cloud.desc':'Architecture, cost optimization and Infrastructure as Code (Terraform) on AWS, GCP and Azure.',
+      'svc.k8s.title':'Kubernetes & Containers', 'svc.k8s.desc':'Orchestration, migrations to Kubernetes and cluster optimization.',
+      'svc.monitoring.title':'Monitoring & Observability', 'svc.monitoring.desc':'Prometheus, Grafana, alerting, dashboards and SLO definition.',
+      'svc.security.title':'Security & Compliance', 'svc.security.desc':'Hardening, secrets management, access policies and audits.',
+      'svc.oncall.title':'Support & On-call', 'svc.oncall.desc':'Response SLAs, high availability and incident response.',
+      'process.title':'A 4-stage process',
+      'step1.title':'Diagnosis', 'step1.desc':'An audit of your current infrastructure and pipelines, spotting risks and quick wins.',
+      'step2.title':'Proposal', 'step2.desc':'A work plan with scope, estimated timeline and the engagement model that fits your case.',
+      'step3.title':'Implementation', 'step3.desc':'Iterative execution with incremental delivery and constant communication.',
+      'step4.title':'Support', 'step4.desc':'Documentation, knowledge transfer and post-delivery support.',
+      'modes.eyebrow':'Work modes', 'modes.title':'Choose the format that works for you',
+      'mode.hourly.title':'Hourly', 'mode.hourly.unit':'/ hour', 'mode.hourly.desc':'Ideal for one-off consulting or specific troubleshooting.',
+      'mode.hourly.li1':'Billed for hours worked', 'mode.hourly.li2':'4-hour minimum', 'mode.hourly.li3':'No long-term commitment',
+      'mode.project.tag':'Most popular', 'mode.project.title':'Fixed-scope project', 'mode.project.price':'$(TBD)', 'mode.project.unit':'flat price',
+      'mode.project.desc':'Scope, timeline and deliverables defined upfront.',
+      'mode.project.li1':'Scope locked in the proposal', 'mode.project.li2':'Payment in 3 milestones', 'mode.project.li3':'Documentation included',
+      'mode.retainer.title':'Monthly retainer', 'mode.retainer.unit':'/ month', 'mode.retainer.desc':'Ongoing support and recurring improvements.',
+      'mode.retainer.li1':'80 hours included per month', 'mode.retainer.li2':'3h response SLA', 'mode.retainer.li3':'Cancel anytime, month to month',
+      'stack.eyebrow':'Stack & tools', 'stack.title':'What I work with', 'stack.more':'+ more',
+      'contact.eyebrow':'Contact', 'contact.title':'Let’s talk about your infrastructure',
+      'contact.desc':'Tell me where your infrastructure stands today and what you’d like to solve. I respond within [X] business hours.',
+      'contact.label.email':'Email', 'contact.label.github':'GitHub', 'contact.label.whatsapp':'WhatsApp / Calls',
+      'footer.rights':'All rights reserved.', 'menu.open':'Open menu'
+    },
+    es: {
+      'nav.services':'Servicios', 'nav.how':'Cómo trabajo', 'nav.modes':'Modalidades', 'nav.stack':'Stack',
+      'cta.bookCall':'Agendar llamada', 'cta.viewServices':'Ver servicios',
+      'hero.eyebrow':'Disponible para nuevos proyectos',
+      'hero.title':'Infraestructura estable, <span>deploys sin drama.</span>',
+      'hero.lede':'Soy ingeniero DevOps / Infrastructure. Diseño, automatizo y mantengo la infraestructura cloud y los pipelines de CI/CD para que tu equipo entregue software sin apagar incendios en producción.',
+      'stat.years':'5 años', 'stat.years.label':'en infraestructura cloud',
+      'stat.uptime.label':'uptime promedio*', 'stat.response.label':'tiempo de respuesta',
+      'about.eyebrow':'Sobre mí', 'about.greeting':'Hola, que tal',
+      'about.bio':'Ingeniero de infraestructura cloud con 5 años de experiencia. Especializado en soluciones de automatización, CI/CD y gestión de entornos en la nube (principalmente AWS). He trabajado con startups y scaleups en industrias como finanzas, salud y tecnología e incluso con open source.',
+      'services.eyebrow':'Servicios', 'services.title':'En qué puedo ayudarte',
+      'svc.cicd.title':'CI/CD & Automatización', 'svc.cicd.desc':'Automatización de pipelines con GitHub Actions, GitLab CI o Jenkins — builds, tests y despliegues sin intervención manual.',
+      'svc.cloud.title':'Infraestructura Cloud', 'svc.cloud.desc':'Arquitectura, costos e Infraestructura como Código (Terraform) en AWS, GCP y Azure.',
+      'svc.k8s.title':'Kubernetes & Contenedores', 'svc.k8s.desc':'Orquestación, migraciones a Kubernetes y optimización de clusters.',
+      'svc.monitoring.title':'Monitoreo & Observabilidad', 'svc.monitoring.desc':'Prometheus, Grafana, alertas, dashboards y definición de SLOs.',
+      'svc.security.title':'Seguridad & Compliance', 'svc.security.desc':'Hardening, gestión de secretos, políticas de acceso y auditorías.',
+      'svc.oncall.title':'Soporte & Guardia (On-call)', 'svc.oncall.desc':'SLA de respuesta, alta disponibilidad e incident response.',
+      'process.title':'Proceso en 4 etapas',
+      'step1.title':'Diagnóstico', 'step1.desc':'Auditoría de tu infraestructura y pipelines actuales, identificación de riesgos y quick wins.',
+      'step2.title':'Propuesta', 'step2.desc':'Plan de trabajo con alcance, tiempos estimados y modalidad más conveniente para tu caso.',
+      'step3.title':'Implementación', 'step3.desc':'Ejecución iterativa con entregas incrementales y comunicación constante.',
+      'step4.title':'Soporte', 'step4.desc':'Documentación, transferencia de conocimiento y acompañamiento post-entrega.',
+      'modes.eyebrow':'Modalidades de trabajo', 'modes.title':'Elige el formato que más te convenga',
+      'mode.hourly.title':'Por hora', 'mode.hourly.unit':'/ hora', 'mode.hourly.desc':'Ideal para consultoría puntual o troubleshooting específico.',
+      'mode.hourly.li1':'Facturación por horas trabajadas', 'mode.hourly.li2':'Mínimo de 4 horas', 'mode.hourly.li3':'Sin permanencia',
+      'mode.project.tag':'Más elegido', 'mode.project.title':'Proyecto definido', 'mode.project.price':'$(a definir)', 'mode.project.unit':'precio cerrado',
+      'mode.project.desc':'Alcance, tiempos y entregables definidos por adelantado.',
+      'mode.project.li1':'Alcance cerrado en propuesta', 'mode.project.li2':'Pago en 3 hitos', 'mode.project.li3':'Documentación incluida',
+      'mode.retainer.title':'Retainer mensual', 'mode.retainer.unit':'/ mes', 'mode.retainer.desc':'Acompañamiento continuo, soporte y mejoras recurrentes.',
+      'mode.retainer.li1':'80 horas incluidas al mes', 'mode.retainer.li2':'SLA de respuesta 3h', 'mode.retainer.li3':'Cancelable mes a mes',
+      'stack.eyebrow':'Stack & herramientas', 'stack.title':'Con qué trabajo', 'stack.more':'+ agrega más',
+      'contact.eyebrow':'Contacto', 'contact.title':'¿Hablamos de tu infraestructura?',
+      'contact.desc':'Cuéntame en qué estado está tu infraestructura hoy y qué te gustaría resolver. Respondo en menos de [X] horas hábiles.',
+      'contact.label.email':'Email', 'contact.label.github':'GitHub', 'contact.label.whatsapp':'WhatsApp / Llamadas',
+      'footer.rights':'Todos los derechos reservados.', 'menu.open':'Abrir menú'
+    }
+  };
+
+  var termLines = {
+    en: [
+      {p:'$ ', c:'whoami', o:'devops-engineer · available for projects'},
+      {p:'$ ', c:'terraform plan', o:'+ modules: vpc, eks, rds  (3 to add)'},
+      {p:'$ ', c:'terraform apply -auto-approve', o:'Apply complete! 3 added, 0 changed, 0 destroyed.', cls:'ok'},
+      {p:'$ ', c:'kubectl rollout status deploy/api', o:'deployment "api" successfully rolled out', cls:'ok'},
+      {p:'$ ', c:'curl -I https://your-service.com', o:'HTTP/2 200 · uptime 99.9%', cls:'ok'}
+    ],
+    es: [
+      {p:'$ ', c:'whoami', o:'devops-engineer · disponible para proyectos'},
+      {p:'$ ', c:'terraform plan', o:'+ módulos: vpc, eks, rds  (3 to add)'},
+      {p:'$ ', c:'terraform apply -auto-approve', o:'Apply complete! 3 added, 0 changed, 0 destroyed.', cls:'ok'},
+      {p:'$ ', c:'kubectl rollout status deploy/api', o:'deployment "api" successfully rolled out', cls:'ok'},
+      {p:'$ ', c:'curl -I https://tu-servicio.com', o:'HTTP/2 200 · uptime 99.9%', cls:'ok'}
+    ]
+  };
+
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var lines = [
-    {p:'$ ', c:'whoami', o:'devops-engineer · disponible para proyectos'},
-    {p:'$ ', c:'terraform plan', o:'+ módulos: vpc, eks, rds  (3 to add)'},
-    {p:'$ ', c:'terraform apply -auto-approve', o:'Apply complete! 3 added, 0 changed, 0 destroyed.', cls:'ok'},
-    {p:'$ ', c:'kubectl rollout status deploy/api', o:'deployment "api" successfully rolled out', cls:'ok'},
-    {p:'$ ', c:'curl -I https://tu-servicio.com', o:'HTTP/2 200 · uptime 99.9%', cls:'ok'}
-  ];
-  var body = document.getElementById('termBody');
-  if(!body) return;
+  var termBody = document.getElementById('termBody');
+  var typingTimer = null;
 
-  function render(){
-    body.innerHTML = '';
-    lines.forEach(function(l){
-      var row = document.createElement('div');
-      row.innerHTML = '<span class="prompt">'+l.p+'</span><span class="cmd">'+l.c+'</span>';
-      body.appendChild(row);
-      var out = document.createElement('div');
-      out.className = 'out' + (l.cls ? ' '+l.cls : '');
-      out.textContent = l.o;
-      body.appendChild(out);
-    });
-    var caret = document.createElement('div');
-    caret.innerHTML = '<span class="prompt">$ </span><span class="caret"></span>';
-    body.appendChild(caret);
-  }
+  function renderTerminal(lang){
+    if(!termBody) return;
+    var lines = termLines[lang] || termLines.en;
+    if(typingTimer){ clearTimeout(typingTimer); clearInterval(typingTimer); typingTimer = null; }
+    termBody.innerHTML = '';
 
-  if(reduce){
-    render();
-    return;
-  }
-
-  var i = 0;
-  function typeLine(){
-    if(i >= lines.length){
-      var caret = document.createElement('div');
-      caret.innerHTML = '<span class="prompt">$ </span><span class="caret"></span>';
-      body.appendChild(caret);
+    if(reduce){
+      lines.forEach(function(l){
+        var row = document.createElement('div');
+        row.innerHTML = '<span class="prompt">'+l.p+'</span><span class="cmd">'+l.c+'</span>';
+        termBody.appendChild(row);
+        var out = document.createElement('div');
+        out.className = 'out' + (l.cls ? ' '+l.cls : '');
+        out.textContent = l.o;
+        termBody.appendChild(out);
+      });
+      var caret0 = document.createElement('div');
+      caret0.innerHTML = '<span class="prompt">$ </span><span class="caret"></span>';
+      termBody.appendChild(caret0);
       return;
     }
-    var l = lines[i];
-    var row = document.createElement('div');
-    var promptSpan = document.createElement('span');
-    promptSpan.className = 'prompt';
-    promptSpan.textContent = l.p;
-    var cmdSpan = document.createElement('span');
-    cmdSpan.className = 'cmd';
-    row.appendChild(promptSpan);
-    row.appendChild(cmdSpan);
-    body.appendChild(row);
 
-    var chars = l.c.split('');
-    var ci = 0;
-    var t = setInterval(function(){
-      cmdSpan.textContent += chars[ci];
-      ci++;
-      if(ci >= chars.length){
-        clearInterval(t);
-        setTimeout(function(){
-          var out = document.createElement('div');
-          out.className = 'out' + (l.cls ? ' '+l.cls : '');
-          out.textContent = l.o;
-          body.appendChild(out);
-          i++;
-          setTimeout(typeLine, 260);
-        }, 180);
+    var i = 0;
+    function typeLine(){
+      if(i >= lines.length){
+        var caret = document.createElement('div');
+        caret.innerHTML = '<span class="prompt">$ </span><span class="caret"></span>';
+        termBody.appendChild(caret);
+        return;
       }
-    }, 26);
+      var l = lines[i];
+      var row = document.createElement('div');
+      var promptSpan = document.createElement('span');
+      promptSpan.className = 'prompt';
+      promptSpan.textContent = l.p;
+      var cmdSpan = document.createElement('span');
+      cmdSpan.className = 'cmd';
+      row.appendChild(promptSpan);
+      row.appendChild(cmdSpan);
+      termBody.appendChild(row);
+
+      var chars = l.c.split('');
+      var ci = 0;
+      typingTimer = setInterval(function(){
+        cmdSpan.textContent += chars[ci];
+        ci++;
+        if(ci >= chars.length){
+          clearInterval(typingTimer);
+          typingTimer = setTimeout(function(){
+            var out = document.createElement('div');
+            out.className = 'out' + (l.cls ? ' '+l.cls : '');
+            out.textContent = l.o;
+            termBody.appendChild(out);
+            i++;
+            typingTimer = setTimeout(typeLine, 260);
+          }, 180);
+        }
+      }, 26);
+    }
+    typeLine();
   }
-  typeLine();
+
+  function getSavedLang(){
+    try{
+      var saved = localStorage.getItem('lang');
+      if(saved === 'en' || saved === 'es') return saved;
+    }catch(e){}
+    return 'en';
+  }
+
+  var currentLang = getSavedLang();
+
+  function applyLang(lang){
+    currentLang = lang;
+    var dict = translations[lang] || translations.en;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-html');
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-aria');
+      if(dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.textContent = lang === 'en' ? 'ES' : 'EN';
+    });
+    try{ localStorage.setItem('lang', lang); }catch(e){}
+    renderTerminal(lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.addEventListener('click', function(){
+      applyLang(currentLang === 'en' ? 'es' : 'en');
+    });
+  });
+
+  applyLang(currentLang);
 })();
 </script>
 </body>
